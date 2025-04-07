@@ -1,31 +1,38 @@
 ---
 description: 
 globs: 
+alwaysApply: false
+---
+---
+description: 
+globs: 
 alwaysApply: true
 ---
+
 # Component Organization
 
 ## Component Types and Responsibilities
 
-- UI Components
-  - Should be pure, presentational components with minimal business logic
-  - Must be highly reusable across different features
-  - Should accept props for customization and event handling
-  - Examples: buttons, modals, form fields, toggles, icons
+- **UI Components**
+  - Always use [React Aria](mdc:https:/react-spectrum.adobe.com/react-aria) components where possible.
+  - Should be pure, presentational, and contain little to no business logic.
+  - Must be highly reusable across multiple features.
+  - Accept props for configuration, styling, and event handling.
+  - Examples: `Button`, `Modal`, `TextField`, `Toggle`, `Icon`
 
-- Feature Components
-  - Should compose UI components to build complex functionality
-  - Can contain business logic and feature-specific state
-  - Should handle data fetching and mutations
-  - Examples: UserProfileCard, LoginForm, DashboardChart
+- **Feature Components**
+  - Compose UI components to deliver end-to-end user interactions.
+  - Can include business logic and manage local state relevant to the feature.
+  - Responsible for data fetching, mutations, and coordinating hooks.
+  - Examples: `UserProfileCard`, `LoginForm`, `DashboardChart`
+  - Feature-specific components should live in the `features/_components` folder to keep domain logic isolated.
 
 ## Best Practices
 
-> ⚠️ Do not mix UI and feature logic in the same component
+> ⚠️ Avoid mixing UI logic and business logic in a single component.
 
-- Always prefer composition: feature components should **import** and **use** UI components
-- UI components should never import feature components
-- Keep UI components as pure and stateless as possible
-- Extract shared business logic into custom hooks
-- Use TypeScript interfaces to define clear component props
-
+- Prefer composition: feature components should **import** and **use** UI components.
+- Never allow UI components to import feature components.
+- Keep UI components stateless and purely presentational.
+- Extract shared business logic into custom hooks.
+- Use TypeScript interfaces to enforce clear and predictable component APIs.

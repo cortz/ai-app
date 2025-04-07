@@ -1,37 +1,43 @@
 ---
 description: 
 globs: 
+alwaysApply: false
+---
+---
+description: 
+globs: 
 alwaysApply: true
 ---
+
 # Testing
+
+Defines expectations for writing and maintaining tests across the codebase.
 
 ## Integration Tests
 
-- Include integration tests where appropriate.
-- Maintain good test coverage.
+- Write integration tests where features involve multiple components working together.
+- Prioritize user flows and interaction coverage over implementation details.
+- Ensure important component boundaries and behavior are tested.
+- Maintain meaningful test coverage without over-testing edge cases.
 
 ## Unit Testing
 
 _(Rule Type: Always)_
 
-- All UI components must have a corresponding unit test.
+- All UI components **must** have corresponding unit tests.
 - Use **Vitest** as the test runner.
-- Use **React Testing Library** for rendering and interactions.
-- Place the test file alongside the component or in a matching `__tests__` folder.
-- Test filenames must follow the pattern:  
-  - `ComponentName.test.tsx`  
-  - Example: `Checkbox.tsx` → `Checkbox.test.tsx`
+- Use **React Testing Library** for rendering and interaction logic.
 
-### Test Requirements
+### What to Test
 
-- Verify rendering of the component
-- Check for accessibility roles or labels (`role="checkbox"`, `aria-*`)
-- Include user interaction tests where relevant (e.g., clicks, typing)
-- Use `describe`, `it`, `expect`, and `screen` from `@testing-library/react`
+- Rendering: confirm that components render expected elements.
+- Accessibility: check for semantic roles, labels, and ARIA attributes.
+- Interactions: simulate realistic user behavior (e.g., clicking, typing).
+- Use `describe`, `it`, `expect`, and `screen` from `@testing-library/react`.
 
-> ⚠️ A component implementation is not complete without an accompanying unit test.
+> ⚠️ A component is not considered complete without a unit test.
 
-#### Example Test Skeleton
+## Example – Basic Unit Test
 
 ```tsx
 // Checkbox.test.tsx

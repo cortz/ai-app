@@ -1,22 +1,45 @@
 ---
 description: 
 globs: 
+alwaysApply: false
+---
+---
+description: 
+globs: 
 alwaysApply: true
 ---
+
 # Code Style and Patterns
 
-- Follow TypeScript best practices.
-- Use meaningful variable and function names.
-- Naming conventions:
-  - PascalCase for components
-  - camelCase for variables and functions
-- Structure conventions:
-  - Follow existing folder and file organization patterns
-- Create semantically correct components with clear boundaries:
-  - Each component should have a single, well-defined purpose.
-  - Separate UI elements with different responsibilities (e.g., navigation vs. data manipulation).
-  - Avoid mixing unrelated functionality (e.g., don’t place action buttons inside breadcrumb components).
-- Maintain consistent formatting.
-- Prioritize readability and maintainability.
-- Throw errors sparingly. Error messages should end with a period.
-- Use TanStack Query for all API interactions.
+- Follow TypeScript best practices to ensure type safety and developer confidence.
+- Use clear, descriptive names for variables and functions. Avoid abbreviations.
+  
+## Naming Conventions
+
+- **PascalCase** for components and exported functions  
+  Example: `export const UserCard = () => {}`
+- **camelCase** for variables, functions, and methods
+- **UPPER_SNAKE_CASE** for constants
+
+## Component Structure
+
+- Each component should have one clear responsibility.
+- Separate unrelated UI concerns—for example, navigation elements should not handle data mutation.
+- Avoid mixing functionality. Never place action buttons inside components meant solely for layout (e.g., `Breadcrumbs`).
+
+## Code Organization
+
+- Group related constants, utilities, and logic together for clarity.
+- Place all hooks at the top of component bodies.
+- Keep logic focused; extract complex behavior into custom hooks to keep components lean.
+
+## Formatting and Readability
+
+- Maintain consistent formatting using a linter and formatter (e.g., ESLint + Prettier).
+- Optimize for readability. Future developers should understand your code without explanation.
+- Throw errors only when necessary. All error messages should end with a period.
+
+## API and Data
+
+- Use [TanStack Query](mdc:https:/tanstack.com/query/latest) for all server interactions. Handle loading, error, and success states explicitly.
+

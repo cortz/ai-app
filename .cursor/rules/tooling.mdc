@@ -3,17 +3,30 @@ description:
 globs: 
 alwaysApply: true
 ---
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
 # Tooling and Scripts
 
 _(Rule Type: Always)_
 
-- This project uses **pnpm** as the package manager.
-- Always use `pnpm` for installing, running, or updating packages.
-- Do not use `npm` or `yarn` commands.
-- Examples:
-  - ✅ `pnpm install`
-  - ✅ `pnpm run dev`
-  - ✅ `pnpm add @testing-library/react`
-  - ❌ `npm install`, ❌ `yarn add`
+Defines the standard tooling setup and usage rules for this project.
 
-> ⚠️ All documentation, scripts, and generated code must reflect pnpm usage.
+## Package Manager
+
+- Use **pnpm** exclusively for installing and managing dependencies.
+- Do **not** use `npm` or `yarn` under any circumstances.
+- All scripts, documentation, and generated code must reflect `pnpm` usage.
+
+### Examples
+
+- ✅ `pnpm install`
+- ✅ `pnpm run dev`
+- ✅ `pnpm add @testing-library/react`
+- ❌ `npm install`  
+- ❌ `yarn add`
+
+> ⚠️ Inconsistent tooling causes friction. Always align with the defined ecosystem.
