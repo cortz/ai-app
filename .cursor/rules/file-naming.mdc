@@ -1,17 +1,41 @@
 ---
 description: 
 globs: 
+alwaysApply: false
+---
+---
+description: 
+globs: 
 alwaysApply: true
 ---
+
 # File and Naming Conventions
 
 _(Rule Type: File Creation Only)_
 
-- Component filenames **must use PascalCase**.  
+## File Naming
+
+- Component filenames **must use PascalCase**  
   ✅ `Checkbox.tsx`, `UserCard.tsx`  
   ❌ `checkbox.tsx`, `user-card.tsx`
-- The filename must match the exported component name exactly.
-- Use PascalCase for component exports (e.g., `export const UserCard = () => {}`).
-- Use camelCase for variable and function names.
-- Avoid default exports — always use named exports.
-- Folders can use lowercase unless otherwise standardized in the project.
+- Filenames must match the name of their primary exported component exactly.
+- Test files must follow the pattern: `ComponentName.test.tsx`.
+- Use `.d.ts` for type definition files.
+- Always prefer **named exports** over default exports for better traceability and auto-import support.
+
+## Folder Organization
+
+- Feature folders must use **kebab-case**  
+  ✅ `user-profile/`, `auth-forms/`  
+  ❌ `UserProfile/`, `authForms/`
+- UI component folders must use **lowercase**  
+  ✅ `components/ui/button/`  
+  ❌ `components/UI/Button/`
+
+### Project Structure
+
+- `components/ui/`: Reusable, presentational UI components  
+- `components/features/`: Feature-specific components scoped to domain logic  
+- `lib/`: Shared utilities, helpers, and custom hooks  
+- `types/`: Global TypeScript definitions
+

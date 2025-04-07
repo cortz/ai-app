@@ -3,35 +3,41 @@ description:
 globs: 
 alwaysApply: true
 ---
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
 # Form Validation Rules
 
-This file outlines project-specific rules and patterns for building and validating forms in the frontend.
+Defines how forms should be structured, validated, and displayed in the frontend.
 
 ## Libraries
 
-- Use `react-hook-form` for form state management.
-- Use `zod` for schema-based validation.
-- Integrate both via `@hookform/resolvers/zod`.
+- Use [`react-hook-form`](mdc:https:/react-hook-form.com) to manage form state.
+- Use [`zod`](mdc:https:/zod.dev) for schema-based validation.
+- Combine both using `@hookform/resolvers/zod`.
 
 ## Validation Rules
 
-- Always define a schema for validation.
-- Define validation schemas in a separate file under `src/validations/` or `src/forms/schemas/`.
-- Do not use inline validation rules directly in JSX.
-- Display validation errors next to the relevant field.
-- Use the `FormErrorMessage` component to show errors consistently.
-- Fields marked as `required` must be clearly labeled with an asterisk or hint text.
-- Use `isRequired` and `aria-required` attributes on required fields.
-- Match field names in the schema exactly with the component's `name` prop.
-- Validate on submit by default. Use `onBlur` or `onChange` only if needed for better UX.
+- Always define a validation schema for every form.
+- Store schemas in `src/validations/` or `src/forms/schemas/`—never inline.
+- Avoid writing validation rules directly inside JSX.
+- Show validation errors next to their respective fields.
+- Use the `FormErrorMessage` component to display errors consistently.
+- Required fields must be clearly marked (e.g., with an asterisk or helper text).
+- Apply both `isRequired` and `aria-required` to required fields.
+- Ensure schema keys match the `name` prop on form components exactly.
+- Validate on submit by default. Use `onBlur` or `onChange` only when justified by UX.
 
 ## Form Guidelines
 
-- Use controlled components integrated with `react-hook-form`.
-- Group form logic into a `useFormXYZ` hook when the form is large or shared.
-- Always test validation behavior (happy path + validation errors).
-- Do not suppress error messages or auto-dismiss them without UX reasoning.
-- Use native input types where applicable (e.g., `type="email"`).
+- Use controlled components connected to `react-hook-form`.
+- For large or reusable forms, group logic into a custom `useFormXyz` hook.
+- Validate both happy paths and error cases in tests.
+- Never suppress or auto-dismiss errors unless intentionally designed.
+- Use semantic input types whenever possible (e.g., `type="email"`).
 
 ## Example – Basic Form with Validation
 
