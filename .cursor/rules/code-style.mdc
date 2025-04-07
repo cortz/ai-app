@@ -6,7 +6,7 @@ alwaysApply: false
 ---
 description: 
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Code Style and Patterns
