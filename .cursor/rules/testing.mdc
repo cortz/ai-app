@@ -1,0 +1,47 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Testing
+
+## Integration Tests
+
+- Include integration tests where appropriate.
+- Maintain good test coverage.
+
+## Unit Testing
+
+_(Rule Type: Always)_
+
+- All UI components must have a corresponding unit test.
+- Use **Vitest** as the test runner.
+- Use **React Testing Library** for rendering and interactions.
+- Place the test file alongside the component or in a matching `__tests__` folder.
+- Test filenames must follow the pattern:  
+  - `ComponentName.test.tsx`  
+  - Example: `Checkbox.tsx` → `Checkbox.test.tsx`
+
+### Test Requirements
+
+- Verify rendering of the component
+- Check for accessibility roles or labels (`role="checkbox"`, `aria-*`)
+- Include user interaction tests where relevant (e.g., clicks, typing)
+- Use `describe`, `it`, `expect`, and `screen` from `@testing-library/react`
+
+> ⚠️ A component implementation is not complete without an accompanying unit test.
+
+#### Example Test Skeleton
+
+```tsx
+// Checkbox.test.tsx
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import { Checkbox } from "./Checkbox";
+
+describe("Checkbox", () => {
+  it("renders with a label", () => {
+    render(<Checkbox label="Accept Terms" />);
+    expect(screen.getByLabelText("Accept Terms")).toBeInTheDocument();
+  });
+});

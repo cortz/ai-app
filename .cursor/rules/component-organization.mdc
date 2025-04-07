@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Component Organization
+
+## Component Types and Responsibilities
+
+- UI Components
+  - Should be pure, presentational components with minimal business logic
+  - Must be highly reusable across different features
+  - Should accept props for customization and event handling
+  - Examples: buttons, modals, form fields, toggles, icons
+
+- Feature Components
+  - Should compose UI components to build complex functionality
+  - Can contain business logic and feature-specific state
+  - Should handle data fetching and mutations
+  - Examples: UserProfileCard, LoginForm, DashboardChart
+
+## Best Practices
+
+> ⚠️ Do not mix UI and feature logic in the same component
+
+- Always prefer composition: feature components should **import** and **use** UI components
+- UI components should never import feature components
+- Keep UI components as pure and stateless as possible
+- Extract shared business logic into custom hooks
+- Use TypeScript interfaces to define clear component props
+

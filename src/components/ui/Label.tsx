@@ -3,7 +3,6 @@ import {
   Label as AriaLabel,
   type LabelProps as AriaLabelProps,
 } from "react-aria-components";
-import { twMerge } from "tailwind-merge";
 
 /**
  * Label component that uses React Aria for accessibility.
@@ -23,7 +22,7 @@ export interface LabelProps
   className?: string;
 }
 
-const label = tv({
+const labelStyles = tv({
   base: "block text-sm font-medium text-gray-700 mb-1",
   variants: {
     variant: {
@@ -38,6 +37,6 @@ const label = tv({
 
 export function Label({ variant, className, ...props }: LabelProps) {
   return (
-    <AriaLabel {...props} className={twMerge(label({ variant }), className)} />
+    <AriaLabel {...props} className={labelStyles({ variant, className })} />
   );
 }

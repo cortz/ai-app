@@ -1,0 +1,19 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Tooling and Scripts
+
+_(Rule Type: Always)_
+
+- This project uses **pnpm** as the package manager.
+- Always use `pnpm` for installing, running, or updating packages.
+- Do not use `npm` or `yarn` commands.
+- Examples:
+  - ✅ `pnpm install`
+  - ✅ `pnpm run dev`
+  - ✅ `pnpm add @testing-library/react`
+  - ❌ `npm install`, ❌ `yarn add`
+
+> ⚠️ All documentation, scripts, and generated code must reflect pnpm usage.

@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Code Style and Patterns
+
+- Follow TypeScript best practices.
+- Use meaningful variable and function names.
+- Naming conventions:
+  - PascalCase for components
+  - camelCase for variables and functions
+- Structure conventions:
+  - Follow existing folder and file organization patterns
+- Create semantically correct components with clear boundaries:
+  - Each component should have a single, well-defined purpose.
+  - Separate UI elements with different responsibilities (e.g., navigation vs. data manipulation).
+  - Avoid mixing unrelated functionality (e.g., don’t place action buttons inside breadcrumb components).
+- Maintain consistent formatting.
+- Prioritize readability and maintainability.
+- Throw errors sparingly. Error messages should end with a period.
+- Use TanStack Query for all API interactions.

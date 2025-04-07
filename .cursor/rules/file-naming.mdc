@@ -1,0 +1,17 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# File and Naming Conventions
+
+_(Rule Type: File Creation Only)_
+
+- Component filenames **must use PascalCase**.  
+  ✅ `Checkbox.tsx`, `UserCard.tsx`  
+  ❌ `checkbox.tsx`, `user-card.tsx`
+- The filename must match the exported component name exactly.
+- Use PascalCase for component exports (e.g., `export const UserCard = () => {}`).
+- Use camelCase for variable and function names.
+- Avoid default exports — always use named exports.
+- Folders can use lowercase unless otherwise standardized in the project.

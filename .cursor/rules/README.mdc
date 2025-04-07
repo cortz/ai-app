@@ -1,0 +1,26 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# AI Rule Files Overview
+
+This project uses modular `.mdc` files to define key conventions and standards. Each file has a specific focus to keep guidelines clear and maintainable.
+
+## 🔧 Core Rules
+
+| File | Purpose |
+|------|---------|
+| `code-style.mdc` | TypeScript conventions, formatting standards, and general coding practices |
+| `file-naming.mdc` | File and folder naming conventions, project structure |
+| `component-organization.mdc` | Component composition and separation of concerns |
+| `form-validation.mdc` | Form handling patterns using react-hook-form and zod |
+| `testing.mdc` | Testing standards for components using Vitest and React Testing Library |
+| `tooling.mdc` | Package management (pnpm) and development tooling requirements |
+| `pull-request.mdc` | Standards for writing clear pull request descriptions |
+
+## ✨ Usage
+
+- Reference these files before generating or reviewing code
+- Keep all `.mdc` files in the `/rules` directory
+- Contact the frontend team lead for questions about these standards

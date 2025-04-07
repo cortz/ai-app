@@ -1,0 +1,75 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Form Validation Rules
+
+This file outlines project-specific rules and patterns for building and validating forms in the frontend.
+
+## Libraries
+
+- Use `react-hook-form` for form state management.
+- Use `zod` for schema-based validation.
+- Integrate both via `@hookform/resolvers/zod`.
+
+## Validation Rules
+
+- Always define a schema for validation.
+- Define validation schemas in a separate file under `src/validations/` or `src/forms/schemas/`.
+- Do not use inline validation rules directly in JSX.
+- Display validation errors next to the relevant field.
+- Use the `FormErrorMessage` component to show errors consistently.
+- Fields marked as `required` must be clearly labeled with an asterisk or hint text.
+- Use `isRequired` and `aria-required` attributes on required fields.
+- Match field names in the schema exactly with the component's `name` prop.
+- Validate on submit by default. Use `onBlur` or `onChange` only if needed for better UX.
+
+## Form Guidelines
+
+- Use controlled components integrated with `react-hook-form`.
+- Group form logic into a `useFormXYZ` hook when the form is large or shared.
+- Always test validation behavior (happy path + validation errors).
+- Do not suppress error messages or auto-dismiss them without UX reasoning.
+- Use native input types where applicable (e.g., `type="email"`).
+
+## Example – Basic Form with Validation
+
+```tsx
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { TextField } from "src/components/ui/TextField";
+import { Button } from "src/components/ui/Button";
+import { FormErrorMessage } from "src/ui/components/FormErrorMessage";
+
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+
+export function LoginForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: any) => {
+    // handle login logic
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <TextField label="Email" {...register("email")} isRequired />
+      <FormErrorMessage error={errors.email?.message} />
+
+      <TextField label="Password" type="password" {...register("password")} isRequired />
+      <FormErrorMessage error={errors.password?.message} />
+
+      <Button type="submit">Login</Button>
+    </form>
+  );
+}
